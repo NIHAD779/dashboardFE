@@ -1,12 +1,17 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 
+interface Movie {
+  title: string;
+  genres: string[]; // Array of strings for genres
+  year: string | null; // Year can be a string or null
+}
 const MoviesList = () => {
-    const [movies,setMovies] = useState([])
-    const [page,setpage] = React.useState(1)
-    const [title,setTitle] = useState('')
+    const [movies,setMovies] = useState<Movie[]>([])
+    const [page,setpage] = React.useState<number>(1)
+    const [title,setTitle] = useState<string>('')
 
-    const fetchMovies =  async()=>{
+    const fetchMovies =  async(page:number,title:string)=>{
         try{
             const response = await axios.get(
               "https://dashboardbe.onrender.com/movies",
@@ -18,9 +23,8 @@ const MoviesList = () => {
         }catch(error){
             console.log(error)
     }}
-
     useEffect(()=>{
-        fetchMovies()
+        fetchMovies(page,title)
     },[page,title])
   return (
     <div className=" border border-blue-300 bg-gray-400 p-5 flex flex-col gap-5">
