@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react'
 
 const MoviesList = () => {
     // const [movies,setMovies] = useState([])
-    const [page,setpage] = useState(1)
+    const [page,setpage] = React.useState(1)
     const [title,setTitle] = useState('')
 
     // const fetchMovies =  async()=>{
