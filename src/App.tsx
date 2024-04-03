@@ -4,8 +4,10 @@ function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <MoviesList />
+      <div className='flex flex-col gap-5'>
+        <h1 className="text-3xl font-bold ">Movies DashBoard</h1>
+        <MoviesList />
+      </div>
     </>
   );
 }
